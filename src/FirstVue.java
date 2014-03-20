@@ -1,6 +1,7 @@
 //THE VUE
 
 import java.awt.BorderLayout;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -17,20 +18,35 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 
+/**
+ * @author Dufour Mathieu
+ * @version 1
+ * Classe FirstVue implémentant l'interface graphique
+ */
 
 class FirstVue implements ActionListener{
-	//controller
+	/**
+	 * Controlleur
+	 */
 	public Controller controller;
-	//frame
+	/**
+	 * Frame et Dialog
+	 */
 	public JFrame frame1;
 	public JDialog conf;
-	//panels
+	/**
+	 * Panel
+	 */
 	public JPanel pane1;
 	public JPanel pane2;
 	public JPanel pane3;
-	//file chooser
+	/**
+	 * FileCHooser
+	 */
 	public JFileChooser fileChooser;
-	//menu
+	/**
+	 * Menu et MenuItem
+	 */
 	public JMenuBar menuBar;
 	public JMenu menu;
 	public JMenu menu2;
@@ -38,8 +54,9 @@ class FirstVue implements ActionListener{
 	public JMenuItem itemSaveImage;
 	public JMenuItem itemQuitter;
 	public JMenuItem itemConfig;
-
-	//buttons
+	/**
+	 * Button
+	 */
 	public JButton redButton;
 	public JButton greenButton;
 	public JButton blueButton;
@@ -47,14 +64,21 @@ class FirstVue implements ActionListener{
 	public JButton originalButton;
 	public JButton buttonConfOk;
 	public JButton buttonConfAnnul;
-	//slider
-	//label
+	/**
+	 * Label
+	 */
 	public JLabel grisLabel;
 	public JLabel imgLabel;
 	public JLabel threadLabel;
-	//spinner
+	/**
+	 * Spinner
+	 */
 	public JSpinner threadSpin;
-
+	
+	
+	/**
+	 * Fonction d'initialisation des elements de l'interface graphique
+	 */
 	private void initialiserElements() {
 		//Frame
 		frame1 = new JFrame("ImgWork");
@@ -117,6 +141,9 @@ class FirstVue implements ActionListener{
 		threadSpin = new JSpinner();
 	}
 	
+	/**
+	 * Fonction de placement des éléments de l'interface graphique
+	 */
 	public void placeContents() {
 		frame1.add(pane1, BorderLayout.CENTER);
 		frame1.add(pane2, BorderLayout.SOUTH);
@@ -138,9 +165,10 @@ class FirstVue implements ActionListener{
 		conf.setVisible(false);
 	}
 	
+	/**
+	 * Fonction de creation des actions associées à chaque éléments
+	 */
 	public void createActions() {
-
-		
 		itemOuvrirImage.addActionListener(this);
 		itemSaveImage.addActionListener(this);
 		itemQuitter.addActionListener(this);
@@ -157,7 +185,11 @@ class FirstVue implements ActionListener{
 		originalButton.addActionListener(this);
 	}
 	
-	
+	/**
+	 * Constructeur de la classe FirstVue
+	 * @param controller Controller associé à la classe FirstVue
+	 * @see Controller
+	 */
 	public FirstVue(Controller controller) {
 		
 		this.controller = controller;
@@ -175,11 +207,18 @@ class FirstVue implements ActionListener{
 		frame1.setVisible(true);
 	}
 
+	/**
+	 * Fonction d'affichage de la classe FirstVue
+	 */
 	public void affiche() {
 		controller.image.repaint();
 	}
 
 	@Override
+	/**
+	 * Fonction faisant l'interaction entre un élément et notre controlleur
+	 * @param ActionEvent e
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == itemOuvrirImage)
 			controller.onItemOuvrirImageClicked();

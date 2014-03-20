@@ -1,5 +1,9 @@
 
-
+/**
+ * @author Dufour Mathieu
+ * @version 1
+ * Classe Main lançant l'application et déclarant notre modèle et notre controlleur
+ */
 public class Main {
 
 	//Main1
